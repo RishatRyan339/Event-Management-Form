@@ -1,0 +1,144 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("img/wallpaper.jpg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.layer {
+    position: absolute;
+    height: 100%;
+    background-color: #3940467a;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-container {
+    width: 100%;
+    z-index:1000;
+    max-width: 400px;
+    padding: 15px;
+    /* margin-left:724px; */
+    background-color: #ffffff42;
+    border: 1px solid #dee2e607;
+    backdrop-filter: blur(2px);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+.log-logo{
+    position: relative;
+    margin-left:100px;
+    height:100px;
+    width:100px;
+    border-radius: 15px;
+}
+.login-container{
+    padding:50px;
+    border-radius:25px;
+}
+
+.form-group .form-control {
+    padding-left: 2.5rem; /* Adjust to fit the icon */
+}
+.form-group .bi-person-circle {
+    position: absolute;
+    margin-left: 12px;
+    margin-top: -38px;
+   font-size:22px;
+    pointer-events: none;
+    color: #6c747c; /* Adjust icon color if needed */
+}
+.small{
+font-size: 10px;
+}
+.icon-small{
+
+font-size: 1px;
+color: #495057;
+height:2px;
+
+}
+#icon-small{
+font-size: 2px;
+color: #495057;
+height:32px;
+width:32px;
+position: relative;
+left:114px;
+margin-left:5px;
+}
+.btn-primary{
+/* background-color: #007bff; */
+background-color: #f55858;
+font-weight:bold ;
+border:#f55858;
+padding:12px;
+}
+
+.btn-primary:hover{
+background-color:  #b43f3f;
+
+border:#f83b3b;
+}
+
+#icon-small2{
+font-size: 2px;
+color: #495057;
+height:15px;
+width:15px;
+position: relative;
+left:0px;
+margin-left:5px;
+}
+#icon-small:hover{
+cursor: pointer;
+color: #495057;
+}
+.med{
+text-align: center;
+font-size: 14px;
+
+}
+#password-lock{
+  
+    margin-top:-65px;
+    margin-left:10px;
+}
+#errorMessage {
+color: red;
+margin-top: 10px;
+}
+.left-column {
+   /* Light grey background for the text section */
+
+ top:385px;
+ color:#fff;
+}
+.right-column {
+   /* White background for the image section */
+    left:250px;
+   padding: 20px;
+
+}
+.right-column img {
+    max-width: 100%;
+    height: auto;
+}

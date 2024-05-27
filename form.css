@@ -1,0 +1,70 @@
+.submittedTableBody {
+    background-color: #000;
+}
+.image-preview {
+    width: 50%;
+    min-height: 100px;
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+    display: none;
+}
+.mt-5{
+    width:120%;
+}
+.image-preview__image {
+    display: none;
+    width: 150%;
+}
+.form-control-custom {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding: 8px 0;
+    width: 50%;
+    box-sizing: border-box;
+    border-radius: 0%;
+    background-color: transparent;
+}
+.form-control-custom:focus {
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    box-shadow: none;
+}
+.form-control-custom::placeholder {
+    color: #000000;
+}
+body {
+    background-color: rgb(255, 255, 255);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container {
+    background-color: #1b1b1b00;
+    padding: 120px;
+    width: 100%;
+    backdrop-filter: blur(1px);
+}
+.form-control {
+    width: 100%;
+}
+.form-select {
+    width: 100%;
+}
+.btn-primary {
+    background-color: #413c3c49;
+    border: #cccccc;
+    padding: 17px;
+}
+.btn-primary:hover {
+    background-color: #413c3c49;
+}
+.submitted-images img {
+    display: block;
+    margin-top: 15px;
+    width: 50%;
+    border: 2px solid #dddddd;
+}
+.table td {
+    padding: 8px 16px; /* Adjust the padding to create gaps between text columns */
+}

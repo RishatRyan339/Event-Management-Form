@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .thumbnail {
+            width: 50px;
+            height: auto;
+        }
+        .filter-btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Image Management</h2>
+        <form id="imageForm" class="mb-4">
+            <div class="form-group mb-3">
+                <label for="imageType">Image Type</label>
+                <select class="form-control" id="imageType" required>
+                    <option value="">Choose...</option>
+                    <option value="Small">Small</option>
+                    <option value="Detail">Detail</option>
+                    <option value="Story">Story</option>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="imageFile">Upload Image</label>
+                <input type="file" class="form-control-file" id="imageFile" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Image</button>
+        </form>
+
+        <div class="mb-3">
+            <button class="btn btn-secondary filter-btn" data-filter="All">All</button>
+            <button class="btn btn-secondary filter-btn" data-filter="Small">Small</button>
+            <button class="btn btn-secondary filter-btn" data-filter="Detail">Detail</button>
+            <button class="btn btn-secondary filter-btn" data-filter="Story">Story</button>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Thumbnail</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="imageTableBody">
+                <!-- Images will be appended here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('imageForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const imageType = document.getElementById('imageType').value;
+            const imageFile = document.getElementById('imageFile').files[0];
+
+            // Validate form values
+            if (!imageType || !imageFile) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Create a new table row with image thumbnail and type
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageTableBody = document.getElementById('imageTableBody');
+                const row = document.createElement('tr');
+                row.setAttribute('data-type', imageType);
+
+                const thumbnailCell = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = event.target.result;
+                img.className = 'thumbnail';
+                thumbnailCell.appendChild(img);
+
+                const typeCell = document.createElement('td');
+                typeCell.textContent = imageType;
+
+                const actionsCell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.className = 'btn btn-danger btn-sm';
+                deleteButton.addEventListener('click', () => row.remove());
+                actionsCell.appendChild(deleteButton);
+
+                row.appendChild(thumbnailCell);
+                row.appendChild(typeCell);
+                row.appendChild(actionsCell);
+
+                imageTableBody.appendChild(row);
+            };
+            reader.readAsDataURL(imageFile);
+
+         
+            document.getElementById('imageForm').reset();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                const rows = document.querySelectorAll('#imageTableBody tr');
+                rows.forEach(row => {
+                    if (filter === 'All' || row.getAttribute('data-type') === filter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
